@@ -95,14 +95,14 @@ const Addcalls = () => {
 
           <div className="col-12">
             <label htmlFor="inputSubject" className="form-label">
-              Subject
+              Crypto Name
             </label>
             <input
               type="text"
               className="form-control rounded-0"
               id="inputSubject"
               name="subjectname"
-              placeholder="Enter Subject"
+              placeholder="Enter Crypto Name"
               value={subject.subjectname}
               onChange={(e) => handleInputChange(e, setSubject)}
             />
