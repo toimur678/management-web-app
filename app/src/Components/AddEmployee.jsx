@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddEmployee = () => {
-  const [assistant, setCalls] = useState({
+  const [assistant, setcalls] = useState({
     name: "",
     email: "",
     password: "",
@@ -56,7 +56,7 @@ const AddEmployee = () => {
               id="inputName"
               placeholder="Enter Name"
               value={assistant.name}
-              onChange={(e) => setCalls({ ...assistant, name: e.target.value })}
+              onChange={(e) => setcalls({ ...assistant, name: e.target.value })}
             />
           </div>
           <div className="col-12">
@@ -71,7 +71,7 @@ const AddEmployee = () => {
               autoComplete="off"
               value={assistant.email}
               onChange={(e) =>
-                setCalls({ ...assistant, email: e.target.value })
+                setcalls({ ...assistant, email: e.target.value })
               }
             />
           </div>
@@ -86,7 +86,7 @@ const AddEmployee = () => {
               placeholder="Enter Password"
               value={assistant.password}
               onChange={(e) =>
-                setCalls({ ...assistant, password: e.target.value })
+                setcalls({ ...assistant, password: e.target.value })
               }
             />
           </div>
@@ -102,7 +102,7 @@ const AddEmployee = () => {
               autoComplete="off"
               value={assistant.salary}
               onChange={(e) =>
-                setCalls({ ...assistant, salary: e.target.value })
+                setcalls({ ...assistant, salary: e.target.value })
               }
             />
           </div>
@@ -118,7 +118,7 @@ const AddEmployee = () => {
               autoComplete="off"
               value={assistant.address}
               onChange={(e) =>
-                setCalls({ ...assistant, address: e.target.value })
+                setcalls({ ...assistant, address: e.target.value })
               }
             />
           </div>

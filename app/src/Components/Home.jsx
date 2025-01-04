@@ -28,7 +28,7 @@ const Home = () => {
   const callsCount = () => {
     axios.get("http://localhost:3000/auth/call_count").then((result) => {
       if (result.data.Status) {
-        setcallsTotal(result.data.Result[0].totalCalls);
+        setcallsTotal(result.data.Result[0].totalcalls);
       }
     });
   };
@@ -71,7 +71,7 @@ const Home = () => {
         {/* Employee codes */}
         <div className="px-3 pt-2 pb-3 border shadow-sm w-25">
           <div className="text-center pb-1">
-            <h4>Employee calls</h4>
+            <h4>Info Entry</h4>
           </div>
           <hr />
           <div className="d-flex justify-content-between">

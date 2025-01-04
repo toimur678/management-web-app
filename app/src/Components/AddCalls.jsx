@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddCalls = () => {
+const Addcalls = () => {
   const [customers, setCustomers] = useState({ name: "", surname: "" });
   const [subject, setSubject] = useState({ SubjectName: "" });
   const [date, setDate] = useState({ calldate: "" });
@@ -60,7 +60,7 @@ const AddCalls = () => {
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h3 className="text-center">Add a new call</h3>
+        <h3 className="text-center">Add a new info</h3>
 
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
@@ -102,7 +102,7 @@ const AddCalls = () => {
               className="form-control rounded-0"
               id="inputSubject"
               name="subjectname"
-              placeholder="Malfunction/ Demand/ Information"
+              placeholder="Enter Subject"
               value={subject.subjectname}
               onChange={(e) => handleInputChange(e, setSubject)}
             />
@@ -117,7 +117,7 @@ const AddCalls = () => {
           </div>
 
           <div className="mt-3 col-12">
-            <button type="submit" className="btn btn-danger w-100">
+            <button type="submit" className="btn btn-warning w-100">
               Continue
             </button>
           </div>
@@ -127,4 +127,4 @@ const AddCalls = () => {
   );
 };
 
-export default AddCalls;
+export default Addcalls;

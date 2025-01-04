@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditCallStatus = () => {
-  const { CallStatusID } = useParams();
+const Editcallstatus = () => {
+  const { callstatusID } = useParams();
   const [employee, setEmployee] = useState({
     StatusName: "",
   });
@@ -13,7 +13,7 @@ const EditCallStatus = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/edit_call/" + CallStatusID)
+      .get("http://localhost:3000/calling/edit_call/" + callstatusID)
       .then((result) => {
         setEmployee({
           ...employee,
@@ -27,7 +27,7 @@ const EditCallStatus = () => {
     e.preventDefault();
     axios
       .put(
-        "http://localhost:3000/calling/edit_callStatus/" + CallStatusID,
+        "http://localhost:3000/calling/edit_callstatus/" + callstatusID,
         employee
       )
       .then((result) => {
@@ -43,18 +43,18 @@ const EditCallStatus = () => {
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h2 className="text-center">Edit Call Status</h2>
+        <h2 className="text-center">Edit Comment</h2>
 
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
-            <label for="inputCallStatus" className="form-label">
-              Call status
+            <label for="inputcallstatus" className="form-label">
+            
             </label>
             <input
               type="text"
               className="form-control rounded-100 mt-3"
-              id="inputCallStatus"
-              placeholder="Completed/ Tracking/ The problem could not be solved"
+              id="inputcallstatus"
+              placeholder="Comment here"
               value={employee.StatusName}
               onChange={(e) =>
                 setEmployee({ ...employee, StatusName: e.target.value })
@@ -63,7 +63,7 @@ const EditCallStatus = () => {
           </div>
 
           <div className="col-12 mt-5">
-            <button type="submit" className="btn btn-danger w-100">
+            <button type="submit" className="btn btn-warning w-100">
               Update info
             </button>
           </div>
@@ -72,4 +72,4 @@ const EditCallStatus = () => {
     </div>
   );
 };
-export default EditCallStatus;
+export default Editcallstatus;

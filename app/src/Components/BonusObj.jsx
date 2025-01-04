@@ -37,7 +37,7 @@ const BonusObj = () => {
               style={{ height: "200px", whiteSpace: "pre-wrap" }}
             ></textarea>
           </div>
-          <button className="btn btn-danger w-100 rounded-0 mb-2">Send</button>
+          <button className="btn btn-warning w-100 rounded-100 mb-2">Send</button>
         </form>
       </div>
     </div>

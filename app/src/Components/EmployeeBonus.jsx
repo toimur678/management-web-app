@@ -21,7 +21,7 @@ const EmployeeBonus = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h2>Employee Bonus Information</h2>
+        <h2>Employee Payment Information</h2>
       </div>
       <div className="mt-5">
         <table className="table">
@@ -31,7 +31,7 @@ const EmployeeBonus = () => {
               <th>Name</th>
               <th>Surname</th>
               <th>Month</th>
-              <th>Total call</th>
+              <th>Total Entry</th>
               <th>Total payment</th>
             </tr>
           </thead>

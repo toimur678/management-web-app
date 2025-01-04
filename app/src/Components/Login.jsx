@@ -61,7 +61,7 @@ const Login = () => {
               className="form-control rounded-100"
             />
           </div>
-          <button className="btn btn-danger w-100 rounded-100 mb-2">
+          <button className="btn btn-warning w-100 rounded-100 mb-2">
             Login
           </button>
           {/*<button
@@ -85,7 +85,7 @@ const Login = () => {
           <div className="mb-1">
             <input type="checkbox" name="tick" id="tick" className="me-2" />
             <label htmlFor="password">
-              You are Agree with Vodafone's terms & conditions || 2024 Vodafone Turkiye.
+              You are Agree with Binance's terms & conditions || 2024 Binance Turkiye.
             </label>
           </div>
         </form>

@@ -22,7 +22,7 @@ import Bonus from "./Components/Bonus";
 import BonusObj from "./Components/BonusObj";
 import Objections from "./Components/Objections";
 import EditCalls from "./Components/EditCalls";
-import EditCallStatus from "./Components/EditCallStatus";
+import EditCallstatus from "./Components/EditCallstatus";
 import Response from "./Components/Response";
 import EmployeeBonus from "./Components/EmployeeBonus";
 import SignUP from "./Components/SignUp";
@@ -75,11 +75,11 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/empdash/calls" element={<Calls />}></Route>
-          <Route path="/empdash/add_calls" element={<AddCalls />}></Route>
-          <Route path="/empdash/add_calls2" element={<AddCalls2 />}></Route>
+          <Route path="/empdash/Calls" element={<Calls />}></Route>
+          <Route path="/empdash/add_Calls" element={<AddCalls />}></Route>
+          <Route path="/empdash/add_Calls2" element={<AddCalls2 />}></Route>
           <Route
-            path="/empdash/edit_calls/:callstatusid"
+            path="/empdash/edit_Calls/:Callstatusid"
             element={<EditCalls />}
           ></Route>
           <Route path="/empdash/bonus" element={<Bonus />}></Route>
@@ -87,11 +87,11 @@ function App() {
           <Route path="/empdash/objections" element={<Objections />}></Route>
           <Route
             path="/empdash/edit_call_status"
-            element={<EditCallStatus />}
+            element={<EditCallstatus />}
           ></Route>
           <Route
-            path="/empdash/edit_call_status/:CallStatusID"
-            element={<EditCallStatus />}
+            path="/empdash/edit_call_status/:CallstatusID"
+            element={<EditCallstatus />}
           ></Route>
         </Route>
       </Routes>

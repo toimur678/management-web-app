@@ -57,7 +57,7 @@ router.get("/logout", (req, res) => {
 });
 
 // Adding customers name and surname (Not using this right now)
-router.post("/add_calls", (req, res) => {
+router.post("/add_infos", (req, res) => {
   const sql = `INSERT INTO customers 
     (Name, Surname) 
     VALUES (?)`;

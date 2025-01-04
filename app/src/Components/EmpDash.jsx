@@ -34,8 +34,8 @@ const EmpDash = () => {
                   to="/empdash/calls"
                   className="nav-link px-0 align-middle text-white"
                 >
-                  <i className="fs-4 bi-telephone-inbound ms-2"></i>
-                  <span className="ms-2 d-none d-sm-inline">Call history</span>
+                  <i className="fs-4 bi-hourglass-top ms-2"></i>
+                  <span className="ms-2 d-none d-sm-inline">Mining history</span>
                 </Link>
               </li>
 
@@ -74,8 +74,8 @@ const EmpDash = () => {
 
         {/*Top title codes are below*/}
         <div className="col p-0 m-0 ">
-          <div className="p-2 d-flex justify-content-center shadow bg-danger text-white">
-            <h1>Vodafone Managment System</h1>
+          <div className="p-2 d-flex justify-content-center shadow bg-warning text-dark">
+            <h1>Binance Managment System</h1>
           </div>
           <Outlet />
         </div>

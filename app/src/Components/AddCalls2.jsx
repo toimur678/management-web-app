@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AddCalls2 = () => {
+const Addcalls2 = () => {
   const navigate = useNavigate();
   const [startTime, setStartTime] = useState(""); // State to hold the start time
   const [endTime, setEndTime] = useState(""); // State to hold the end time
@@ -41,12 +41,12 @@ const AddCalls2 = () => {
   return (
     <div className="d-flex justify-content-center align-items-center mt-3">
       <div className="p-3 rounded w-50 border">
-        <h3 className="text-center">Submit call duration</h3>
+        <h3 className="text-center">Add Time</h3>
 
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="mt-3 col-12">
             <label htmlFor="startTimeInput" className="form-label">
-              Call start time
+              Start Time
             </label>
             <input
               type="time"
@@ -58,7 +58,7 @@ const AddCalls2 = () => {
           </div>
           <div className="mt-3 col-12">
             <label htmlFor="endTimeInput" className="form-label">
-              Call end time
+              End Time
             </label>
             <input
               type="time"
@@ -69,7 +69,7 @@ const AddCalls2 = () => {
             />
           </div>
           <div className="mt-3 col-12">
-            <button type="submit" className="btn btn-danger w-100">
+            <button type="submit" className="btn btn-warning w-100">
               Submit info
             </button>
           </div>
@@ -79,4 +79,4 @@ const AddCalls2 = () => {
   );
 };
 
-export default AddCalls2;
+export default Addcalls2;

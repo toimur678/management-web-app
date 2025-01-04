@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Calls = () => {
+const calls = () => {
   const [customers, setCustomers] = useState([]);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Calls = () => {
   return (
     <div className="px-5 mt-3 ">
       <div className="d-flex justify-content-center">
-        <h3>New Objection Lists from Employee</h3>
+        <h3>New Complains from Employees</h3>
       </div>
       <div className="mt-3 ">
         <table className="table">
@@ -66,13 +66,13 @@ const Calls = () => {
                 <td>{c.ResponseText}</td>
                 <td>
                   <button
-                    className="btn btn-success btn-sm mb-1"
+                    className="btn btn-warning btn-sm mb-1"
                     onClick={() => handleApprove(c.ObjectionID)}
                   >
                     Approve
                   </button>
                   <button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-secondary btn-sm"
                     onClick={() => handleReject(c.ObjectionID)}
                   >
                     Reject
@@ -87,4 +87,4 @@ const Calls = () => {
   );
 };
 
-export default Calls;
+export default calls;

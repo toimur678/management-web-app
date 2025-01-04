@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const EditCalls = () => {
-  const { CallStatusID } = useParams();
+const Editcalls = () => {
+  const { callstatusID } = useParams();
   const [statusname, setcustomer] = useState({
     StatusName: "",
   });
@@ -23,7 +23,7 @@ const EditCalls = () => {
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:3000/calling/call_status/" + CallStatusID)
+      .get("http://localhost:3000/calling/call_status/" + callstatusID)
       .then((result) => {
         setcustomer({
           ...statusname,
@@ -37,7 +37,7 @@ const EditCalls = () => {
     e.preventDefault();
     axios
       .put(
-        "http://localhost:3000/calling/edit_callstatus/" + CallStatusID,
+        "http://localhost:3000/calling/edit_callstatus/" + callstatusID,
         statusname
       )
       .then((result) => {
@@ -82,4 +82,4 @@ const EditCalls = () => {
   );
 };
 
-export default EditCalls;
+export default Editcalls;

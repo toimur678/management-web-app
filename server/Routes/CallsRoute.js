@@ -28,10 +28,10 @@ router.get("/customer_info", (req, res) => {
   });
 });
 
-// Adding Subject Name to callsubject table in the database
+// Adding Subject Name to infosubject table in the database
 router.post("/add_subject", (req, res) => {
   const { subjectname } = req.body;
-  const sql = "CALL InsertCallSubject(?)";
+  const sql = "CALL Insertinfosubject(?)";
   con.query(sql, [subjectname], (err, result) => {
     if (err) {
       console.error("Error adding subject:", err);
@@ -41,15 +41,15 @@ router.post("/add_subject", (req, res) => {
   });
 });
 
-// Adding Date and Start Time to calls table in the database
+// Adding Date and Start Time to infos table in the database
 router.post("/add_date", (req, res) => {
   const { datename } = req.body;
   const sql = `
-    INSERT INTO calls(EmployeeID,
+    INSERT INTO infos(EmployeeID,
                       CustomerID,
-                      CallDate,
-                      CallStatusID,
-                      CallSubjectID)
+                      infoDate,
+                      infostatusID,
+                      infosubjectID)
     VALUES((SELECT GetEmployeeIDFromLatestLogin()),
            (SELECT MAX(CustomerID) FROM customers),
            NOW(),
@@ -78,7 +78,7 @@ router.post("/add_time", (req, res) => {
     }
 
     // Second SQL query to insert call status
-    const sql2 = "INSERT INTO callstatus () VALUES ()";
+    const sql2 = "INSERT INTO infostatus () VALUES ()";
     con.query(sql2, (err, result) => {
       if (err) {
         console.error("Error adding call status:", err);
@@ -92,25 +92,25 @@ router.post("/add_time", (req, res) => {
     });
 });
 
-// Getting all the callstatus ID
-router.get("/edit_call/:CallStatusID", (req, res) => {
-  const CallStatusID = req.params.CallStatusID;
+// Getting all the infostatus ID
+router.get("/edit_call/:infostatusID", (req, res) => {
+  const infostatusID = req.params.infostatusID;
   const sql =
-    "SELECT ct.StatusName, ct.CallStatusID FROM customers c JOIN callsubject cs ON c.customerid = cs.callsubjectid JOIN calls cl ON c.customerid = cl.callid JOIN time t ON c.customerid = t.id JOIN callstatus ct ON cl.CallID = ct.CallStatusID JOIN employees e ON cl.EmployeeID = e.EmployeeID WHERE ct.CallStatusID = ?);";
-  con.query(sql, [CallStatusID], (err, result) => {
+    "SELECT ct.StatusName, ct.infostatusID FROM customers c JOIN infosubject cs ON c.customerid = cs.infosubjectid JOIN infos cl ON c.customerid = cl.infoID JOIN time t ON c.customerid = t.id JOIN infostatus ct ON cl.infoID = ct.infostatusID JOIN employees e ON cl.EmployeeID = e.EmployeeID WHERE ct.infostatusID = ?);";
+  con.query(sql, [infostatusID], (err, result) => {
     if (err) return res.json({ Status: false, Error: "Query Error" });
     return res.json({ Status: true, Result: result });
   });
 });
 
-// Editing callstatus name
-router.put("/edit_callStatus/:CallStatusID", (req, res) => {
-  const CallStatusID = req.params.CallStatusID;
-  const sql = `UPDATE callstatus 
+// Editing infostatus name
+router.put("/edit_infostatus/:infostatusID", (req, res) => {
+  const infostatusID = req.params.infostatusID;
+  const sql = `UPDATE infostatus 
         set StatusName = ?
-        Where CallStatusID = ?`;
+        Where infostatusID = ?`;
   const values = [req.body.StatusName];
-  con.query(sql, [...values, CallStatusID], (err, result) => {
+  con.query(sql, [...values, infostatusID], (err, result) => {
     if (err) return res.json({ Status: false, Error: "Query Error" + err });
     return res.json({ Status: true, Result: result });
   });
@@ -174,4 +174,4 @@ router.get("/emp_obj_info", (req, res) => {
   });
 });
 
-export { router as CallsRouter };
+export { router as infosRouter };

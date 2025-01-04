@@ -2,14 +2,14 @@ import express from "express";
 import cors from "cors";
 import { adminRouter } from "./Routes/AdminRoute.js";
 import { EmployeeRouter } from "./Routes/EmployeeRoute.js";
-import { CallsRouter } from "./Routes/CallsRoute.js";
+import { infosRouter } from "./Routes/CallsRoute.js";
 import Jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173"], // Change this is based on the port number of your frontend
+    origin: ["http://localhost:5174"], // Change this is based on the port number of your frontend
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/auth", adminRouter);
 app.use("/employee", EmployeeRouter);
-app.use("/calling", CallsRouter);
+app.use("/calling", infosRouter);
 app.use(express.static("Public"));
 
 const verifyUser = (req, res, next) => {

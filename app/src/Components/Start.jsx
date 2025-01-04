@@ -24,7 +24,7 @@ const Start = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 loginPage">
       <div className="p-5 rounded w-60 border loginForm">
-        <h2 className="text-center">Welcome to Vodafone</h2>
+        <h2 className="text-center">Welcome to Binance</h2>
         <br></br>
         <h4 className="text-center">Management System</h4>
         <br></br>
@@ -40,7 +40,7 @@ const Start = () => {
           </button>
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn btn-warning"
             onClick={() => {
               navigate("/employee_login");
             }}

@@ -21,10 +21,10 @@ const Bonus = () => {
   return (
     <div className="px-5 mt-3">
       <div className="d-flex justify-content-center">
-        <h3>Payment Info</h3>
+        <h3>Payment Information</h3>
       </div>
-      <Link to="/empdash/bonusobj" className="mt-5 btn btn-danger">
-        Create complain
+      <Link to="/empdash/bonusobj" className="mt-5 btn btn-warning">
+        Complain
       </Link>
       <div className="mt-5">
         <table className="table">

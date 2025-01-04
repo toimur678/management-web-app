@@ -140,7 +140,7 @@ router.get("/admin_records", (req, res) => {
 
 // Total call count
 router.get("/call_count", (req, res) => {
-  const sql = "select count(CallID) as totalCalls from calls";
+  const sql = "select count(infoID) as totalinfos from infos";
   con.query(sql, (err, result) => {
     if (err) return res.json({ Status: false, Error: "Query Error" + err });
     return res.json({ Status: true, Result: result });

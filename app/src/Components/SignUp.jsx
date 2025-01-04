@@ -114,7 +114,7 @@ const SignUP = () => {
           </div>
           
           <button
-            className="btn btn-danger w-100 rounded-100 mb-2 mt-3"
+            className="btn btn-warning w-100 rounded-100 mb-2 mt-3"
             type="submit"
           >
             Add user
