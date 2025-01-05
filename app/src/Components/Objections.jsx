@@ -7,7 +7,7 @@ const Objections = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/emp_obj_info")
+      .get("http://localhost:3000/infoing/emp_obj_info")
       .then((result) => {
         if (result.data.Status) {
           setObj(result.data.Result);

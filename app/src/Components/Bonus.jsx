@@ -7,7 +7,7 @@ const Bonus = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/bonus_info")
+      .get("http://localhost:3000/infoing/bonus_info")
       .then((result) => {
         if (result.data.Status) {
           setBonus(result.data.Result);
@@ -34,7 +34,7 @@ const Bonus = () => {
               <th>Name</th>
               <th>Surname</th>
               <th>Month</th>
-              <th>Total calls</th>
+              <th>Total Infos</th>
               <th>Total payment</th>
             </tr>
           </thead>

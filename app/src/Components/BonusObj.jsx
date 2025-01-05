@@ -9,7 +9,7 @@ const BonusObj = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/calling/add_objection", { objection })
+      .post("http://localhost:3000/infoing/add_objection", { objection })
       .then((result) => {
         if (result.data.Status) {
           navigate("/empdash/bonus");

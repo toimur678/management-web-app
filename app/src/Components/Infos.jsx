@@ -7,7 +7,7 @@ const calls = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/customer_info")
+      .get("http://localhost:3000/infoing/customer_info")
       .then((result) => {
         if (result.data.Status) {
           setCustomers(result.data.Result);
@@ -23,7 +23,7 @@ const calls = () => {
       <div className="d-flex justify-content-center">
         <h3>Crypto Mining Information</h3>
       </div>
-      <Link to="/empdash/add_calls" className="mt-5 btn btn-warning">
+      <Link to="/empdash/add_infos" className="mt-5 btn btn-warning">
         Add Info
       </Link>
       <div className="mt-3 ">
@@ -52,7 +52,7 @@ const calls = () => {
                 <td>{c.StatusName}</td>
                 <td>
                   <Link
-                    to={`/empdash/edit_call_status/` + c.callstatusID}
+                    to={`/empdash/edit_info_status/` + c.infostatusID}
                     className="btn btn-warning btn-sm me-2"
                   >
                     Edit

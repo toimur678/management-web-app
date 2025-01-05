@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Addcalls2 = () => {
+const AddInfos2 = () => {
   const navigate = useNavigate();
   const [startTime, setStartTime] = useState(""); // State to hold the start time
   const [endTime, setEndTime] = useState(""); // State to hold the end time
@@ -23,12 +23,12 @@ const Addcalls2 = () => {
 
     try {
       const timeResponse = await axios.post(
-        "http://localhost:3000/calling/add_time",
+        "http://localhost:3000/infoing/add_time",
         { startTime, endTime } // Pass both start time and end time to the server
       );
 
       if (timeResponse.data.Status) {
-        navigate("/empdash/calls");
+        navigate("/empdash/infos");
       } else {
         alert("Failed to add time. Please try again.");
       }
@@ -79,4 +79,4 @@ const Addcalls2 = () => {
   );
 };
 
-export default Addcalls2;
+export default AddInfos2;

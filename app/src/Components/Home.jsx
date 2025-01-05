@@ -28,7 +28,7 @@ const Home = () => {
   const callsCount = () => {
     axios.get("http://localhost:3000/auth/call_count").then((result) => {
       if (result.data.Status) {
-        setcallsTotal(result.data.Result[0].totalcalls);
+        setcallsTotal(result.data.Result[0].totalinfos);
       }
     });
   };

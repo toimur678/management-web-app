@@ -7,7 +7,7 @@ const EmployeeBonus = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/all_bonus_info")
+      .get("http://localhost:3000/infoing/all_bonus_info")
       .then((result) => {
         if (result.data.Status) {
           setBonus(result.data.Result);

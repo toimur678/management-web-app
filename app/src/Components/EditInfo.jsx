@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const Editcalls = () => {
-  const { callstatusID } = useParams();
+const EditInfo = () => {
+  const { infostatusID } = useParams();
   const [statusname, setcustomer] = useState({
     StatusName: "",
   });
@@ -12,7 +12,7 @@ const Editcalls = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/call_status/")
+      .get("http://localhost:3000/infoing/info_status/")
       .then((result) => {
         if (result.data.Status) {
           setCategory(result.data.Result);
@@ -23,7 +23,7 @@ const Editcalls = () => {
       .catch((err) => console.log(err));
 
     axios
-      .get("http://localhost:3000/calling/call_status/" + callstatusID)
+      .get("http://localhost:3000/infoing/info_status/" + infostatusID)
       .then((result) => {
         setcustomer({
           ...statusname,
@@ -37,12 +37,12 @@ const Editcalls = () => {
     e.preventDefault();
     axios
       .put(
-        "http://localhost:3000/calling/edit_callstatus/" + callstatusID,
+        "http://localhost:3000/infoing/edit_info_status/" + infostatusID,
         statusname
       )
       .then((result) => {
         if (result.data.Status) {
-          navigate("/empdash/calls");
+          navigate("/empdash/infos");
         } else {
           alert(result.data.Error);
         }
@@ -82,4 +82,4 @@ const Editcalls = () => {
   );
 };
 
-export default Editcalls;
+export default EditInfo;

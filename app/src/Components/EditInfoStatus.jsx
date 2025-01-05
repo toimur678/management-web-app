@@ -2,8 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const Editcallstatus = () => {
-  const { callstatusID } = useParams();
+const EditInfotatus = () => {
+  const { infostatusID } = useParams();
   const [employee, setEmployee] = useState({
     StatusName: "",
   });
@@ -13,7 +13,7 @@ const Editcallstatus = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/calling/edit_call/" + callstatusID)
+      .get("http://localhost:3000/infoing/edit_info/" + infostatusID)
       .then((result) => {
         setEmployee({
           ...employee,
@@ -27,12 +27,12 @@ const Editcallstatus = () => {
     e.preventDefault();
     axios
       .put(
-        "http://localhost:3000/calling/edit_callstatus/" + callstatusID,
+        "http://localhost:3000/infoing/edit_info_status/" + infostatusID,
         employee
       )
       .then((result) => {
         if (result.data.Status) {
-          navigate("/empdash/calls");
+          navigate("/empdash/infos");
         } else {
           alert(result.data.Error);
         }
@@ -47,13 +47,13 @@ const Editcallstatus = () => {
 
         <form className="row g-1" onSubmit={handleSubmit}>
           <div className="col-12">
-            <label for="inputcallstatus" className="form-label">
+            <label for="inputinfostatus" className="form-label">
             
             </label>
             <input
               type="text"
               className="form-control rounded-100 mt-3"
-              id="inputcallstatus"
+              id="inputinfostatus"
               placeholder="Comment here"
               value={employee.StatusName}
               onChange={(e) =>
@@ -72,4 +72,4 @@ const Editcallstatus = () => {
     </div>
   );
 };
-export default Editcallstatus;
+export default EditInfotatus;

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Addcalls = () => {
+const AddInfos = () => {
   const [customers, setCustomers] = useState({ name: "", surname: "" });
   const [subject, setSubject] = useState({ SubjectName: "" });
   const [date, setDate] = useState({ calldate: "" });
@@ -20,15 +20,15 @@ const Addcalls = () => {
 
     try {
       const customersResponse = await axios.post(
-        "http://localhost:3000/calling/add_customers",
+        "http://localhost:3000/infoing/add_customers",
         customers
       );
       const subjectResponse = await axios.post(
-        "http://localhost:3000/calling/add_subject",
+        "http://localhost:3000/infoing/add_subject",
         subject
       );
       const dateResponse = await axios.post(
-        "http://localhost:3000/calling/add_date",
+        "http://localhost:3000/infoing/add_date",
         date
       );
 
@@ -37,7 +37,7 @@ const Addcalls = () => {
         subjectResponse.data.Status &&
         dateResponse.data.Status
       ) {
-        navigate("/empdash/add_calls2");
+        navigate("/empdash/add_infos2");
       } else {
         alert("Failed to add call. Please try again.");
       }
@@ -127,4 +127,4 @@ const Addcalls = () => {
   );
 };
 
-export default Addcalls;
+export default AddInfos;

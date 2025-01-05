@@ -93,7 +93,7 @@ router.post("/add_time", (req, res) => {
 });
 
 // Getting all the infostatus ID
-router.get("/edit_call/:infostatusID", (req, res) => {
+router.get("/edit_info/:infostatusID", (req, res) => {
   const infostatusID = req.params.infostatusID;
   const sql =
     "SELECT ct.StatusName, ct.infostatusID FROM customers c JOIN infosubject cs ON c.customerid = cs.infosubjectid JOIN infos cl ON c.customerid = cl.infoID JOIN time t ON c.customerid = t.id JOIN infostatus ct ON cl.infoID = ct.infostatusID JOIN employees e ON cl.EmployeeID = e.EmployeeID WHERE ct.infostatusID = ?);";
@@ -104,7 +104,7 @@ router.get("/edit_call/:infostatusID", (req, res) => {
 });
 
 // Editing infostatus name
-router.put("/edit_infostatus/:infostatusID", (req, res) => {
+router.put("/edit_info_status/:infostatusID", (req, res) => {
   const infostatusID = req.params.infostatusID;
   const sql = `UPDATE infostatus 
         set StatusName = ?

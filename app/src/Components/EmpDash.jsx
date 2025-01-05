@@ -31,7 +31,7 @@ const EmpDash = () => {
               {/*Manage employee*/}
               <li className="w-100">
                 <Link
-                  to="/empdash/calls"
+                  to="/empdash/infos"
                   className="nav-link px-0 align-middle text-white"
                 >
                   <i className="fs-4 bi-hourglass-top ms-2"></i>

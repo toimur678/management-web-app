@@ -6,13 +6,13 @@ import Dashboard from "./Components/Dashboard";
 import EmpDash from "./Components/EmpDash";
 import Home from "./Components/Home";
 import Employee from "./Components/Employee";
-import Calls from "./Components/Calls";
+import Infos from "./Components/Infos";
 import Category from "./Components/Category";
 import Profile from "./Components/Profile";
 import AddCategory from "./Components/AddCategory";
 import AddEmployee from "./Components/AddEmployee";
-import AddCalls from "./Components/AddCalls";
-import AddCalls2 from "./Components/AddCalls2";
+import AddInfos from "./Components/AddInfos";
+import AddInfos2 from "./Components/AddInfos2";
 import EditEmployee from "./Components/EditEmployee";
 import Start from "./Components/Start";
 import EmployeeLogin from "./Components/EmployeeLogin";
@@ -21,8 +21,8 @@ import PrivateRoute from "./Components/PrivateRoute";
 import Bonus from "./Components/Bonus";
 import BonusObj from "./Components/BonusObj";
 import Objections from "./Components/Objections";
-import EditCalls from "./Components/EditCalls";
-import EditCallstatus from "./Components/EditCallstatus";
+import EditInfo from "./Components/EditInfo";
+import EditInfoStatus from "./Components/EditInfoStatus";
 import Response from "./Components/Response";
 import EmployeeBonus from "./Components/EmployeeBonus";
 import SignUP from "./Components/SignUp";
@@ -75,23 +75,23 @@ function App() {
             </PrivateRoute>
           }
         >
-          <Route path="/empdash/Calls" element={<Calls />}></Route>
-          <Route path="/empdash/add_Calls" element={<AddCalls />}></Route>
-          <Route path="/empdash/add_Calls2" element={<AddCalls2 />}></Route>
+          <Route path="/empdash/infos" element={<Infos />}></Route>
+          <Route path="/empdash/add_infos" element={<AddInfos />}></Route>
+          <Route path="/empdash/add_infos2" element={<AddInfos2 />}></Route>
           <Route
-            path="/empdash/edit_Calls/:Callstatusid"
-            element={<EditCalls />}
+            path="/empdash/edit_Calls/:infostatusID"
+            element={<EditInfo />}
           ></Route>
           <Route path="/empdash/bonus" element={<Bonus />}></Route>
           <Route path="/empdash/bonusobj" element={<BonusObj />}></Route>
           <Route path="/empdash/objections" element={<Objections />}></Route>
           <Route
-            path="/empdash/edit_call_status"
-            element={<EditCallstatus />}
+            path="/empdash/edit_info_status"
+            element={<EditInfoStatus />}
           ></Route>
           <Route
-            path="/empdash/edit_call_status/:CallstatusID"
-            element={<EditCallstatus />}
+            path="/empdash/edit_info_status/:infostatusID"
+            element={<EditInfoStatus />}
           ></Route>
         </Route>
       </Routes>

@@ -39,16 +39,55 @@ router.post("/add_admin", async (req, res) => {
 });
 
 // Add user
-router.post("/add_user", async (req, res) => {
+router.post("/add_user", (req, res) => {
   const { name, email, password, salary, address } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const sql =
-    "INSERT INTO employee (`name`, `email`, `password`, `salary`, `address`) VALUES (?, ?, ?, ?, ?)";
-  con.query(sql, [name, email, hashedPassword, salary, address], (err, result) => {
-    if (err) return res.json({ Status: false, Error: "Query Error" });
-    return res.json({ Status: true });
+
+  bcrypt.hash(password, 10, (err, hashedPassword) => {
+    if (err) {
+      return res.json({ Status: false, Error: "Password hashing error" });
+    }
+
+    const employeeSql = "INSERT INTO employee (`name`, `email`, `password`, `salary`, `address`) VALUES (?, ?, ?, ?, ?)";
+    con.query(employeeSql, [name, email, hashedPassword, salary, address], (err, result) => {
+      if (err) {
+        return res.json({ Status: false, Error: "Error inserting into employee table" });
+      }
+
+      const employeeId = result.insertId;
+      const surname = name.split(" ").pop(); // Extract last name as surname
+
+      const employeesSql = "INSERT INTO employees (`EmployeeID`, `Name`, `Surname`, `PositionID`) VALUES (?, ?, ?, 2)";
+      con.query(employeesSql, [employeeId, name, surname], (err) => {
+        if (err) {
+          console.error("Error inserting into employees table:", err);
+          return res.json({ Status: false, Error: "Error inserting into employees table" });
+        }
+
+        const bonusIdSql = "SELECT COALESCE(MAX(BonusID), 0) + 1 AS NextBonusID FROM bonuses";
+        con.query(bonusIdSql, (err, bonusResult) => {
+          if (err) {
+            console.error("Error fetching next BonusID:", err);
+            return res.json({ Status: false, Error: "Error fetching next BonusID" });
+          }
+
+          const nextBonusId = bonusResult[0].NextBonusID;
+          const bonusesSql = "INSERT INTO bonuses (`BonusID`, `EmployeeID`, `Month`, `CallCount`, `TotalBonus`) VALUES (?, ?, DATE_FORMAT(CURDATE(), '%M'), 0.00, 0.00)";
+          con.query(bonusesSql, [nextBonusId, employeeId], (err) => {
+            if (err) {
+              console.error("Error inserting into bonuses table:", err);
+              return res.json({ Status: false, Error: "Error inserting into bonuses table" });
+            }
+
+            return res.json({ Status: true });
+          });
+        });
+      });
+    });
   });
 });
+
+
+
 
 // Getting Objection info for admin
 router.get("/objection_info", (req, res) => {
