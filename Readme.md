@@ -1,41 +1,41 @@
-# Kullanım Kılavuzu
+# User Guide
 
-## Gereksinimler
-Bu projeyi çalıştırmadan önce, aşağıdakilere sahip olduğunuzdan emin olun:
+## Requirements
+Before running this project, ensure you have the following installed:
 
-- Node.js
-- XAMPP
+- Node.js  
+- XAMPP  
 
-## Kurulum
-1. Projeyi zip dosyası olarak indirin ve zip dosyasını açın.
-2. Projeyi Visual Studio Code'da açın.
-3. VS Code'da bir terminal açın ve uygulama dizinine gidin:
-    ```bash
-    cd app
-    ```
-4. Gereksinimleri yüklemek için aşağıdaki komutu çalıştırın:
-    ```bash
-    npm install
-    ```
-5. Geliştirme sunucusunu başlatın:
-    ```bash
-    npm run dev
-    ```
-6. VS Code'da başka bir terminal açın ve sunucu dizinine gidin:
-    ```bash
-    cd server
-    ```
-7. Sunucu bağımlılıklarını yükleyin:
-    ```bash
-    npm install
-    ```
-8. Sunucuyu başlatın:
-    ```bash
-    npm start
-    ```
+## Installation
+1. Download the project as a zip file and extract it.  
+2. Open the project in Visual Studio Code.  
+3. Open a terminal in VS Code and navigate to the application directory:  
+   ```bash
+   cd app
+   ```  
+4. Install the required dependencies by running:  
+   ```bash
+   npm install
+   ```  
+5. Start the development server:  
+   ```bash
+   npm run dev
+   ```  
+6. Open another terminal in VS Code and navigate to the server directory:  
+   ```bash
+   cd server
+   ```  
+7. Install the server dependencies:  
+   ```bash
+   npm install
+   ```  
+8. Start the server:  
+   ```bash
+   npm start
+   ```  
 
-## Veritabanı Kurulumu
-1. XAMPP'ı başlatın ve Apache ve MySQL servislerinin çalıştığından emin olun.
-2. Web tarayıcınızı açın ve localhost/phpmyadmin adresine gidin.
-3. Yeni bir veritabanı oluşturun ve adını "app" olarak belirtin.
-4. Sağlanan SQL dosyasını "backup.sql" veritabanına içe aktarın.
+## Database Setup
+1. Start XAMPP and ensure the Apache and MySQL services are running.  
+2. Open your web browser and go to `localhost/phpmyadmin`.  
+3. Create a new database and name it "app".  
+4. Import the provided SQL file `backup.sql` into the database.  
